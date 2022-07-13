@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import AdminHome from './Screens/Admin/AdminHome';
 import AdminOrders from './Screens/Admin/AdminOrders';
 import AdminProfile from './Screens/Admin/AdminProfile';
@@ -12,9 +12,9 @@ import navigationTheme from './config/navigationTheme';
 import WelcomeScreen from './Screens/WelcomScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import Corders from './Screens/Customer/Corders';
-import Cprofile from './Screens/Customer/Cprofile';
 import Cart from './Screens/Customer/Cart';
 import Chome from './Screens/Customer/Chome';
+// import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import CHome from './Screens/Customer/CHome';
 
 function AdminTabs() {
@@ -90,14 +90,30 @@ function CustomerTab(){
 }
 
 export default function app(){
+  
+
   const Stack = createNativeStackNavigator();
+
+  //Logout 
+  // const logout = () => {
+  //   navigation.replace('WelcomeScreen');
+  // }
+
   return(
     <NavigationContainer theme={navigationTheme} >
     <Stack.Navigator>
       <Stack.Group>
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options = {{ headerShown: false }}/>
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} options = {{ title: "Register" }}/>
-        <Stack.Screen name="Admin" component={AdminTabs} />
+        <Stack.Screen name="Admin" component={AdminTabs}  
+        options = {{
+          headerShown: false 
+          // headerRight: () => (
+          //   <MaterialCommunityIcons 
+          //   name="power-standby" color={'red'} size={25} 
+          //   onPress={()=> {logout()}}/>
+          // ),
+        }}/>
         <Stack.Screen name="Customer" component={CustomerTab} options = {{ headerShown: false }}/>
         <Stack.Screen name="Cart" component={Cart} options = {{title: "Cart"}}/>
         <Stack.Screen name="AdminListOfProducts" component = { AdminListOfProducts } options = {{title: "Products"}}/>

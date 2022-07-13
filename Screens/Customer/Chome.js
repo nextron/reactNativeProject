@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Button, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Button, FlatList, LogBox, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../../config/colors';
@@ -19,7 +19,7 @@ const Chome = () => {
     const [cartItems, setCartItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const isFocused = useIsFocused();
-
+    LogBox.ignoreAllLogs()
     //navigation.setOptions({title: loggedInUser.userName});
     //navigation.setOptions({ title: {loggedInUser.}}})
     //console.log(loggedInUser);

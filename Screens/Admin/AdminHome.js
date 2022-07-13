@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import colors from "../../config/colors";
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import topBarStyles from "../../config/topBarStyles";
 
 
 const AdminHome = ({navigation}) => {
@@ -143,9 +144,19 @@ const AdminHome = ({navigation}) => {
         storeData(data);
     }
 
+    //Logout 
+    const logout = () => {
+        navigation.replace('WelcomeScreen');
+    }
+
     return (
         <View>
             <ActivityIndicator style = {styles.activityIndicator} animating = {isLoading} size="large" color ={ colors.primary }/>
+            <View style = {topBarStyles.topBar}>
+                <Text style = {topBarStyles.userNameStyle}>Welcome, Admin</Text>
+                <MaterialCommunityIcons style= {topBarStyles.cartIcon} name="power-standby" color={'red'} size={30} onPress={()=> {logout()}}/>               
+                {/* <MaterialCommunityIcons style= {topBarStyles.cartIcon} name="cart-outline" color={colors.primary} size={33} onPress={()=> {goToCart()}}/> */}
+            </View>
             <View style = {styles.addCategoryItems}>
                 <TextInput 
                     style = {styles.elemetns} 

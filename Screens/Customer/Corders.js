@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Button, FlatList, Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Button, FlatList, LogBox, Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../../config/colors';
@@ -16,6 +16,7 @@ function Corders() {
     const [orderDetails, setOrderDetails] = useState('');
     const [refreshDataFlag, setRefreshDataFLag] = useState(0);
     const isFocused = useIsFocused();
+    LogBox.ignoreAllLogs()
     //console.log(isFocused);
     //const [userOrders, setUserOrders] = useState([]);
     //console.log("IN ORDERS");
@@ -62,7 +63,7 @@ function Corders() {
                 console.log(e);
             }
         })();
-    }, [isFocused]);
+    }, [isFocused, isLoading]);
 
     //Go to Cart
     const goToCart = () =>{

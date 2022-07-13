@@ -124,7 +124,7 @@ const Cart = () => {
                 }
             }
             storeCartItems(updatedCartItems);
-            navigation.goBack();
+            navigation.pop();
             //console.log(cartItemsUpdate + "udpating cart");
         } catch (e) {
             alert(e);

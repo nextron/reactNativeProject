@@ -142,6 +142,11 @@ const AdminOrders = () => {
         storeOrder(completeData);   
     }
 
+    //Logout 
+    const logout = () => {
+        navigation.replace('WelcomeScreen');
+    }
+
     return (
         <View>
             <ActivityIndicator style = {styles.activityIndicator} animating = {isLoading} size="large" color ={ colors.primary }/>
@@ -150,6 +155,11 @@ const AdminOrders = () => {
                 <Text style = {topBarStyles.userNameStyle}>Welcome, {loggedInUser.userFullName}</Text>
                 <MaterialCommunityIcons style= {topBarStyles.cartIcon} name="cart-outline" color={colors.primary} size={33} onPress={()=> {goToCart()}}/>
             </View> */}
+            <View style = {topBarStyles.topBar}>
+                <Text style = {topBarStyles.userNameStyle}>Welcome, Admin</Text>
+                <MaterialCommunityIcons style= {topBarStyles.cartIcon} name="power-standby" color={'red'} size={30} onPress={()=> {logout()}}/>               
+                {/* <MaterialCommunityIcons style= {topBarStyles.cartIcon} name="cart-outline" color={colors.primary} size={33} onPress={()=> {goToCart()}}/> */}
+            </View>
             <View style = {styles.inLineSearchInputs}>
                 <TextInput
                     style = {styles.elemetns} 
