@@ -79,7 +79,7 @@ const AdminOrders = () => {
 
         let viewData = '';
         for(let i = 0; i < data.length; i++){
-            viewData+= "\n"+data[i].productName + " * " + data[i].productPrice + "$ * " + data[i].productQuanity + "\n" + "_________________"+ "\n";
+            viewData+= "\n"+data[i].productName + " * " + data[i].productPrice + "$ * " + data[i].productQuanity + "\n" + "_____________________________"+ "\n";
         }
         // "productName": "Testing ",
         // "productPrice": "13",

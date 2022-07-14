@@ -40,7 +40,7 @@ function AdminTabs() {
         ),
       }}
       />
-      <Tab.Screen 
+      {/* <Tab.Screen 
       name="Profile" 
       component={AdminProfile} 
       options={{
@@ -48,7 +48,7 @@ function AdminTabs() {
           <MaterialCommunityIcons name="account" color={color} size={size} />
         ),
       }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }
