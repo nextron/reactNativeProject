@@ -79,7 +79,7 @@ const AdminOrders = () => {
 
         let viewData = '';
         for(let i = 0; i < data.length; i++){
-            viewData+= "\n"+data[i].productName + " * " + data[i].productPrice + "$ * " + data[i].productQuanity + "\n" + "_____________________________"+ "\n";
+            viewData+= "\n"+data[i].productName + " * " + data[i].productPrice + "$ * " + data[i].productQuanity + "\n" + "_________________________"+ "\n";
         }
         // "productName": "Testing ",
         // "productPrice": "13",
@@ -135,7 +135,7 @@ const AdminOrders = () => {
         console.log(data.orderId);
         for(let i = 0; i < completeData.length; i++){
             if(completeData[i].orderId == data.orderId){
-                completeData[i].orderStatus = "Placed";
+                completeData[i].orderStatus = "Cancelled";
             }
         }
         //console.log("Cancelled");
@@ -173,7 +173,7 @@ const AdminOrders = () => {
             { orders.length == 0 && 
                 <Text style = {styles.emptyOrderStyle} onPress={()=>refreshData()}>No Orders available.</Text>
             }
-            <FlatList style={{marginTop: 14}}
+            <FlatList style={{marginTop: 14, marginBottom: 150}}
             data = { orders }
             renderItem = {({item}) => 
                 <TouchableOpacity onPress={()=> {viewOrderDetails(item);}}>
